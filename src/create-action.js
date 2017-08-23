@@ -1,10 +1,18 @@
+// @flow
+
+type Action = {
+  type: string,
+  payload?: any,
+  meta?: any,
+}
+
 /**
  * Utility function to build action action creator
  * @param  {String} type action creator type
  * @return {Function}
  */
-export default createAction = type => (payload, meta) => {
-  const action = {
+const createAction = (type: string): Function => (payload: ?any, meta: ?any): Object => {
+  const action: Action = {
     type
   }
 
@@ -18,3 +26,5 @@ export default createAction = type => (payload, meta) => {
 
   return action
 }
+
+export default createAction
