@@ -1,0 +1,9 @@
+{
+  "name": "redux-create-actions",
+  "version": "0.0.1",
+  "description": "Flux standard action building utilities for Redux",
+  "main": "index.js",
+  "repository": "https://github.com/adrianObel/redux-create-actions",
+  "author": "Adrian Obelmejias <adrian@obel.me>",
+  "license": "MIT"
+}
