@@ -4,7 +4,7 @@
   "description": "Redux action creator building utilities",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && tape -r babel-register ./tests/*.spec.js",
+    "test": "npm run build && NODE_ENV=test nyc tape -r babel-register ./tests/*.spec.js",
     "build": "babel src/ -d lib/",
     "lint": "eslint src/*.js",
     "flow": "flow",
@@ -17,6 +17,16 @@
       "git add"
     ]
   },
+  "nyc": {
+    "include": [
+      "lib/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
   "license": "MIT",
@@ -24,6 +34,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.26.0",
@@ -37,6 +48,7 @@
     "flow-bin": "^0.53.1",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
+    "nyc": "^11.1.0",
     "tape": "^4.8.0"
   }
 }
