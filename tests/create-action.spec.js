@@ -54,10 +54,12 @@ test('createAction', t => {
 })
 
 test('createAction async', t => {
-  t.plan(4)
+  t.plan(5)
 
   const type: string = 'TEST_ASYNC_ACTION'
   const asyncAction: ActionCreator = createAction(type, true)
+
+  t.equal(asyncAction.__async, true)
 
   t.deepEqual(asyncAction(), {
     type

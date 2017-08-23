@@ -30,6 +30,7 @@ const createAction = (type: string, async: boolean = false): ActionCreator => {
 
   const asyncTypes = createRequestTypes(type)
 
+  actionCreator.__async = true
   actionCreator.start = createAction(asyncTypes.START)
   actionCreator.success = createAction(asyncTypes.SUCCESS)
   actionCreator.failure = createAction(asyncTypes.FAILURE)
