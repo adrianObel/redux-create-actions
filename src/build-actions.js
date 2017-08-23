@@ -3,8 +3,14 @@
 import type { ReduxActionModule, ActionCreator } from './types.flow'
 
 /**
- * Utility function used to generate map of constants and
- * action creators
+ * Utility function used in conjunction of createAction
+ * to generate map of constants and action creators
+
+ * @example
+ * buildActions('users', {
+ *  loadUsersPage: createAction('LOAD_USERS_PAGE', true)
+ * })
+ *
  * @param  {string} namespace  module namespace
  * @param  {Object} actions    map of action creators used to generate the module
  * @return {Object}
