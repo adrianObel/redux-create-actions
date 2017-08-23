@@ -1,7 +1,7 @@
 {
   "name": "redux-create-actions",
   "version": "0.0.1",
-  "description": "Flux standard action building utilities for Redux",
+  "description": "Redux action creator building utilities",
   "main": "index.js",
   "scripts": {
     "test": "tape ./tests/*.test.js"
