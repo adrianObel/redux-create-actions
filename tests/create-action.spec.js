@@ -1,7 +1,7 @@
 import test from 'tape'
 import createAction from '../lib/create-action'
 
-test('generate action creator that returns a correctly formatted action', t => {
+test('createAction', t => {
   t.plan(7)
 
   let payload = null
