@@ -4,6 +4,12 @@ export const START: string = 'START'
 export const SUCCESS: string = 'SUCCESS'
 export const FAILURE: string = 'FAILURE'
 
+export const suffixes = {
+  START,
+  SUCCESS,
+  FAILURE
+}
+
 /**
  * Utility function to generate three keyed constants
  * for start success and failure action creators
@@ -18,9 +24,3 @@ const createRequestTypes = (base: string): Object => {
 }
 
 export default createRequestTypes
-
-export const suffixes = {
-  START,
-  SUCCESS,
-  FAILURE
-}
