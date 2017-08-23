@@ -34,7 +34,7 @@ const buildActions = (namespace: string, actions: Object): ReduxActionModule => 
       module.constants[startType] = `@${namespace}/${startType}`
       const { type: successType } = actionCreator.success()
       module.constants[successType] = `@${namespace}/${successType}`
-      const { type: failureType } = actionCreator.start()
+      const { type: failureType } = actionCreator.failure()
       module.constants[failureType] = `@${namespace}/${failureType}`
     }
 
