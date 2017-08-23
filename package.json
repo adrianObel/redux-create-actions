@@ -7,7 +7,14 @@
     "test": "npm run build && tape -r babel-register ./tests/*.spec.js",
     "build": "babel src/ -d lib/",
     "lint": "eslint src/*.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
@@ -27,6 +34,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "^0.53.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.3",
     "tape": "^4.8.0"
   }
 }
