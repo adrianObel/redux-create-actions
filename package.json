@@ -7,6 +7,7 @@
     "test": "npm run build && tape -r babel-register ./tests/*.spec.js",
     "build": "babel src/ -d lib/",
     "lint": "eslint src/*.js",
+    "flow": "flow",
     "prepublish": "npm run build",
     "precommit": "lint-staged"
   },
