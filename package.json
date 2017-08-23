@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "description": "Flux standard action building utilities for Redux",
   "main": "index.js",
+  "scripts": {
+    "test": "tape ./tests/*.test.js"
+  },
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.8.0"
+  }
 }
