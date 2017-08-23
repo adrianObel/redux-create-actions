@@ -1,13 +1,16 @@
+// @flow
+
 import test from 'tape'
 import createAction from '../src/create-action'
+import type { ActionCreator } from '../src/types.flow'
 
 test('createAction', t => {
   t.plan(7)
 
-  let payload = null
-  let meta = null
-  const type = 'TEST_ACTION'
-  const action = createAction(type)
+  let payload: ?any = null
+  let meta: ?any = null
+  const type: string = 'TEST_ACTION'
+  const action: ActionCreator = createAction(type)
 
   t.deepEqual(action(), {
     type
@@ -53,8 +56,8 @@ test('createAction', t => {
 test('createAction async', t => {
   t.plan(4)
 
-  const type = 'TEST_ASYNC_ACTION'
-  const asyncAction = createAction(type, true)
+  const type: string = 'TEST_ASYNC_ACTION'
+  const asyncAction: ActionCreator = createAction(type, true)
 
   t.deepEqual(asyncAction(), {
     type
