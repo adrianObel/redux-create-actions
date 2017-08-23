@@ -1,11 +1,7 @@
 // @flow
-import createRequestTypes from './create-request-types'
 
-type Action = {
-  type: string,
-  payload?: any,
-  meta?: any,
-}
+import createRequestTypes from './create-request-types'
+import type { Action, ActionCreator } from './types.flow'
 
 /**
  * Utility function to build action action creator
@@ -13,8 +9,8 @@ type Action = {
  * @param  {boolean} async flag indicating if action is of async type
  * @return {Function}
  */
-const createAction = (type: string, async: boolean = false): Function => {
-  const actionCreator = (payload: ?any, meta: ?any): Object => {
+const createAction = (type: string, async: boolean = false): ActionCreator => {
+  const actionCreator = (payload?: any, meta?: any): Action => {
     const action: Action = {
       type
     }
