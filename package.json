@@ -4,9 +4,9 @@
   "description": "Redux action creator building utilities",
   "main": "index.js",
   "scripts": {
-    "test": "tape ./tests/*.test.js",
+    "test": "npm run build && tape -r babel-register ./tests/*.spec.js",
     "build": "babel src/ -d lib/",
-    "prepublish": "yarn run build"
+    "prepublish": "npm run build"
   },
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
@@ -16,6 +16,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
     "flow-bin": "^0.53.1",
     "tape": "^4.8.0"
   }
