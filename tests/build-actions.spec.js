@@ -3,15 +3,16 @@
 import test from 'tape'
 import buildActions from '../src/build-actions'
 import type { ReduxActionModule } from '../src/build-actions.flow'
+import type { ActionCreator } from '../src/create-action.flow'
 
-const mockCreateAction: Function = type => (payload, meta) => ({
+const mockCreateAction = (type: string): ActionCreator => (payload, meta) => ({
   type,
   payload,
   meta
 })
 
-const mockCreateAsyncAction: Function = type => {
-  const actionCreator = (payload, meta) => ({ type, payload, meta })
+const mockCreateAsyncAction = (type: string): ActionCreator => {
+  const actionCreator: ActionCreator = (payload, meta) => ({ type, payload, meta })
   actionCreator.__async = true
 
   actionCreator.start = mockCreateAction(`${type}_START`)
