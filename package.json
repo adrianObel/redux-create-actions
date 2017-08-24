@@ -2,10 +2,12 @@
   "name": "redux-create-actions",
   "version": "0.0.1",
   "description": "Redux action creator building utilities",
-  "main": "index.js",
+  "main": "dist/redux-create-actions.cjs.js",
+  "module": "dist/redux-create-actions.esm.js",
+  "browser": "dist/redux-create-actions.umd.js",
   "scripts": {
     "test": "NODE_ENV=test nyc tape ./tests/*.spec.js",
-    "build": "babel src/ -d lib/",
+    "build": "rollup -c",
     "lint": "eslint src/*.js",
     "flow": "flow",
     "prepublish": "npm run build",
@@ -30,7 +32,9 @@
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "rollup-plugin-babel": "^3.0.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -49,6 +53,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
     "nyc": "^11.1.0",
+    "rollup": "^0.48.2",
     "tape": "^4.8.0"
   }
 }
