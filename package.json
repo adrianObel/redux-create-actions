@@ -11,7 +11,8 @@
     "lint": "eslint src/*.js",
     "flow": "flow",
     "prepublish": "npm run build",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prebuild": "rm -rf dist"
   },
   "lint-staged": {
     "*.js": [
@@ -32,9 +33,7 @@
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
   "license": "MIT",
-  "dependencies": {
-    "rollup-plugin-babel": "^3.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -54,6 +53,8 @@
     "lint-staged": "^4.0.3",
     "nyc": "^11.1.0",
     "rollup": "^0.48.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-babel-minify": "^3.1.2",
     "tape": "^4.8.0"
   }
 }
