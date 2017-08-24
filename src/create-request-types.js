@@ -1,8 +1,10 @@
 // @flow
 
-export const START: string = 'START'
-export const SUCCESS: string = 'SUCCESS'
-export const FAILURE: string = 'FAILURE'
+import type { RequestTypes } from './create-request-types.flow'
+
+export const START: 'START' = 'START'
+export const SUCCESS: 'SUCCESS' = 'SUCCESS'
+export const FAILURE: 'FAILURE' = 'FAILURE'
 
 export const suffixes = {
   START,
@@ -16,11 +18,10 @@ export const suffixes = {
  * @param  {string} base  action identifier
  * @return {Object}
  */
-const createRequestTypes = (base: string): Object => {
-  return [START, SUCCESS, FAILURE].reduce((acc: Object, type: string) => {
-    acc[type] = `${base}_${type}`
-    return acc
-  }, {})
-}
+const createRequestTypes = (base: string): RequestTypes => ({
+  [START]: `${base}_${START}`,
+  [SUCCESS]: `${base}_${SUCCESS}`,
+  [FAILURE]: `${base}_${FAILURE}`
+})
 
 export default createRequestTypes
