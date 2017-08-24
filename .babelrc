@@ -2,6 +2,7 @@
   "presets": [
     "flow",
     ["env", {
+      "modules": false,
       "targets": {
         "browsers": ["last 2 versions", "safari >= 7"]
       }
@@ -9,7 +10,14 @@
   ],
   "env": {
     "test": {
-      "plugins": ["istanbul"]
+      "plugins": ["istanbul"],
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["last 2 versions", "safari >= 7"]
+          }
+        }]
+      ]
     }
   }
 }
