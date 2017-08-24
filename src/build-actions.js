@@ -1,7 +1,7 @@
 // @flow
 
-import type { ReduxActionModule, ActionCreator } from './types.flow'
-
+import type { ReduxActionModule } from './build-actions.flow'
+import type { ActionCreator } from './create-action.flow'
 /**
  * Utility function used in conjunction of createAction
  * to generate map of constants and action creators

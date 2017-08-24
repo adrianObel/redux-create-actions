@@ -2,7 +2,7 @@
 
 import test from 'tape'
 import buildActions from '../src/build-actions'
-import type { ReduxActionModule } from '../src/types.flow'
+import type { ReduxActionModule } from '../src/build-actions.flow'
 
 const mockCreateAction: Function = type => (payload, meta) => ({
   type,

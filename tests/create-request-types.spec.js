@@ -2,7 +2,7 @@
 
 import test from 'tape'
 import createRequestTypes, { suffixes } from '../src/create-request-types'
-import type { RequestTypes } from '../src/types.flow'
+import type { RequestTypes } from '../src/create-request-types.flow'
 
 test('createRequestTypes', t => {
   t.plan(1)
