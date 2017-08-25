@@ -32,6 +32,14 @@
   },
   "repository": "https://github.com/adrianObel/redux-create-actions",
   "author": "Adrian Obelmejias <adrian@obel.me>",
+  "keywords": [
+    "redux",
+    "flux",
+    "action creators",
+    "actions",
+    "react",
+    "FSA"
+  ],
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
