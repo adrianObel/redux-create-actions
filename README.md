@@ -1,4 +1,5 @@
 # redux-create-actions
+[![Build Status](https://travis-ci.org/adrianObel/react-create-actions.svg?branch=master)](https://travis-ci.org/adrianObel/react-create-actions)  [![npm](https://img.shields.io/badge/npm-0.1.0-blue.svg)](https://github.com/adrianObel/react-create-actions) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 `redux-create-actions` is a library that helps construct FSA compliant action creators and massively decreasing the amount of boilerplate necessary to generate constants and action creators.
 
@@ -16,8 +17,6 @@ $ yarn add redux-create-actions
 Suppose we need to generate action creators and constants to fetch reddit posts and log out
 
 ```js
-// actions/reddit.js
-
 import { buildActions, createAction } from 'redux-create-actions'
 
 const {
@@ -78,7 +77,6 @@ Utility function used to bulk construct actions and constants.
 
 The `actionMap` is a javascript object keyed with the action creator's name and a call to the `createAction` function
 ```js
-// actionMap
 {
   likeRepo: createAction('LIKE_REPO')
 }
