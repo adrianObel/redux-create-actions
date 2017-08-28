@@ -27,7 +27,7 @@ const {
   loadPosts: createAction('LOAD_POSTS', true)
 })
 
-export const constants
+export constants
 export default actions
 ```
 
