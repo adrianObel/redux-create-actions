@@ -1,10 +1,14 @@
 // @flow
 
-import type { RequestTypes } from './create-request-types.flow'
+export type RequestTypes = {
+  START: string,
+  SUCCESS: string,
+  FAILURE: string
+}
 
-export const START: 'START' = 'START'
-export const SUCCESS: 'SUCCESS' = 'SUCCESS'
-export const FAILURE: 'FAILURE' = 'FAILURE'
+export const START = 'START'
+export const SUCCESS = 'SUCCESS'
+export const FAILURE = 'FAILURE'
 
 export const suffixes = {
   START,

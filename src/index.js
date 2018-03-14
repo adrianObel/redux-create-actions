@@ -1,2 +1,3 @@
 export { default as createAction } from './create-action'
-export { default as buildActions } from './build-actions'
+export { default as createAsyncAction } from './create-async-action'
+export { default as module } from './module'

@@ -2,15 +2,14 @@
 
 import test from 'tape'
 import createAction from '../src/create-action'
-import type { ActionCreator } from '../src/create-action.flow'
 
 test('createAction', t => {
   t.plan(7)
 
-  let payload: ?any = null
-  let meta: ?any = null
+  let payload = null
+  let meta = null
   const type: string = 'TEST_ACTION'
-  const action: ActionCreator = createAction(type)
+  const action = createAction(type)
 
   t.deepEqual(action(), {
     type
@@ -53,36 +52,11 @@ test('createAction', t => {
   })
 })
 
-test('createAction async', t => {
-  t.plan(5)
-
-  const type: string = 'TEST_ASYNC_ACTION'
-  const asyncAction: ActionCreator = createAction(type, true)
-
-  t.equal(asyncAction.__async, true)
-
-  t.deepEqual(asyncAction(), {
-    type
-  })
-
-  t.deepEqual(asyncAction.start(), {
-    type: `${type}_START`
-  })
-
-  t.deepEqual(asyncAction.success(), {
-    type: `${type}_SUCCESS`
-  })
-
-  t.deepEqual(asyncAction.failure(), {
-    type: `${type}_FAILURE`
-  })
-})
-
 test('createAction with error', t => {
   t.plan(1)
 
-  const type: string = 'ERROR_ACTION'
-  const errorAction: ActionCreator = createAction(type)
+  const type = 'ERROR_ACTION'
+  const errorAction = createAction(type)
   const payload = new Error('Failure')
 
   t.deepEqual(errorAction(payload), {

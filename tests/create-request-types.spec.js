@@ -2,13 +2,12 @@
 
 import test from 'tape'
 import createRequestTypes, { suffixes } from '../src/create-request-types'
-import type { RequestTypes } from '../src/create-request-types.flow'
 
 test('createRequestTypes', t => {
   t.plan(1)
 
-  const base: string = 'FOO'
-  const constants: RequestTypes = createRequestTypes(base)
+  const base = 'FOO'
+  const constants = createRequestTypes(base)
   const expected = {
     [suffixes.START]: `${base}_${suffixes.START}`,
     [suffixes.SUCCESS]: `${base}_${suffixes.SUCCESS}`,
