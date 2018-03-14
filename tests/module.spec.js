@@ -3,6 +3,7 @@
 import test from 'tape'
 import module from '../src/module'
 import type { ActionCreator } from '../src/create-action'
+import type { AsyncActionCreator } from '../src/create-async-action'
 
 const mockCreateAction = (type: string): ActionCreator => (payload, meta) => ({
   type,
@@ -10,8 +11,8 @@ const mockCreateAction = (type: string): ActionCreator => (payload, meta) => ({
   meta
 })
 
-const mockCreateAsyncAction = (type: string): ActionCreator => {
-  const actionCreator: ActionCreator = (payload, meta) => ({ type, payload, meta })
+const mockCreateAsyncAction = (type: string): AsyncActionCreator => {
+  const actionCreator: AsyncActionCreator = (payload, meta) => ({ type, payload, meta })
   actionCreator.__async = true
 
   actionCreator.start = mockCreateAction(`${type}_START`)

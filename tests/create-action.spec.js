@@ -8,7 +8,7 @@ test('createAction', t => {
 
   let payload = null
   let meta = null
-  const type: string = 'TEST_ACTION'
+  const type = 'TEST_ACTION'
   const action = createAction(type)
 
   t.deepEqual(action(), {

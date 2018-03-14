@@ -15,7 +15,7 @@ export type ActionCreator = (payload: any, meta: any) => Action
  * @return {Function}
  */
 const createAction = (type: string): ActionCreator => {
-  const actionCreator: ActionCreator = (payload, meta) => {
+  const actionCreator = (payload, meta) => {
     const action: Action = {
       type
     }
