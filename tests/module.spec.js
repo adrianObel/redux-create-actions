@@ -1,9 +1,8 @@
 // @flow
 
 import test from 'tape'
-import buildActions from '../src/build-actions'
-import type { ReduxActionModule } from '../src/build-actions.flow'
-import type { ActionCreator } from '../src/create-action.flow'
+import module from '../src/module'
+import type { ActionCreator } from '../src/create-action'
 
 const mockCreateAction = (type: string): ActionCreator => (payload, meta) => ({
   type,
@@ -22,19 +21,19 @@ const mockCreateAsyncAction = (type: string): ActionCreator => {
   return actionCreator
 }
 
-test('buildActions', t => {
+test('module', t => {
   t.plan(4)
 
-  const namespace: string = 'test-module'
+  const namespace = 'test-module'
   const testActionCreator = mockCreateAction('TEST_CASE')
   const asyncTestActionCreator = mockCreateAsyncAction('ASYNC_TEST_CASE')
 
-  const actionCreators: Object = {
+  const actionCreators = {
     testCase: testActionCreator,
     asyncTestCase: asyncTestActionCreator
   }
 
-  const expected: ReduxActionModule = {
+  const expected = {
     constants: {
       TEST_CASE: `@${namespace}/TEST_CASE`,
       ASYNC_TEST_CASE: `@${namespace}/ASYNC_TEST_CASE`,
@@ -48,7 +47,7 @@ test('buildActions', t => {
     }
   }
 
-  t.deepEqual(buildActions(namespace, actionCreators), expected)
+  t.deepEqual(module(namespace, actionCreators), expected)
 
   t.equal(typeof asyncTestActionCreator.start, 'function')
   t.equal(typeof asyncTestActionCreator.success, 'function')
