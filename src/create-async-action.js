@@ -5,6 +5,7 @@ import createAction from './create-action'
 import type { ActionCreator } from './create-action'
 
 export type AsyncActionCreator = ActionCreator | {
+  (): ActionCreator,
   __async: true,
   start: ActionCreator,
   success: ActionCreator,

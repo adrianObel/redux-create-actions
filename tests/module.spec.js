@@ -25,7 +25,7 @@ const mockCreateAsyncAction = (type: string): AsyncActionCreator => {
 test('module', t => {
   t.plan(4)
 
-  const namespace = 'test-module'
+  const namespace = '@test-module'
   const testActionCreator = mockCreateAction('TEST_CASE')
   const asyncTestActionCreator = mockCreateAsyncAction('ASYNC_TEST_CASE')
 
@@ -36,11 +36,11 @@ test('module', t => {
 
   const expected = {
     constants: {
-      TEST_CASE: `@${namespace}/TEST_CASE`,
-      ASYNC_TEST_CASE: `@${namespace}/ASYNC_TEST_CASE`,
-      ASYNC_TEST_CASE_START: `@${namespace}/ASYNC_TEST_CASE_START`,
-      ASYNC_TEST_CASE_SUCCESS: `@${namespace}/ASYNC_TEST_CASE_SUCCESS`,
-      ASYNC_TEST_CASE_FAILURE: `@${namespace}/ASYNC_TEST_CASE_FAILURE`
+      TEST_CASE: `${namespace}/TEST_CASE`,
+      ASYNC_TEST_CASE: `${namespace}/ASYNC_TEST_CASE`,
+      ASYNC_TEST_CASE_START: `${namespace}/ASYNC_TEST_CASE_START`,
+      ASYNC_TEST_CASE_SUCCESS: `${namespace}/ASYNC_TEST_CASE_SUCCESS`,
+      ASYNC_TEST_CASE_FAILURE: `${namespace}/ASYNC_TEST_CASE_FAILURE`
     },
     actions: {
       testCase: testActionCreator,
@@ -49,6 +49,38 @@ test('module', t => {
   }
 
   t.deepEqual(module(namespace, actionCreators), expected)
+
+  t.equal(typeof asyncTestActionCreator.start, 'function')
+  t.equal(typeof asyncTestActionCreator.success, 'function')
+  t.equal(typeof asyncTestActionCreator.failure, 'function')
+})
+
+test('module no namespace', t => {
+  t.plan(4)
+
+  const testActionCreator = mockCreateAction('TEST_CASE')
+  const asyncTestActionCreator = mockCreateAsyncAction('ASYNC_TEST_CASE')
+
+  const actionCreators = {
+    testCase: testActionCreator,
+    asyncTestCase: asyncTestActionCreator
+  }
+
+  const expected = {
+    constants: {
+      TEST_CASE: 'TEST_CASE',
+      ASYNC_TEST_CASE: 'ASYNC_TEST_CASE',
+      ASYNC_TEST_CASE_START: 'ASYNC_TEST_CASE_START',
+      ASYNC_TEST_CASE_SUCCESS: 'ASYNC_TEST_CASE_SUCCESS',
+      ASYNC_TEST_CASE_FAILURE: 'ASYNC_TEST_CASE_FAILURE'
+    },
+    actions: {
+      testCase: testActionCreator,
+      asyncTestCase: asyncTestActionCreator
+    }
+  }
+
+  t.deepEqual(module(actionCreators), expected)
 
   t.equal(typeof asyncTestActionCreator.start, 'function')
   t.equal(typeof asyncTestActionCreator.success, 'function')

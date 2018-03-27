@@ -16,21 +16,23 @@ const plugins = minified => {
 }
 
 const umd = ({ minified } = {}) => ({
-  entry: 'src/index.js',
-  dest: minified ? minifyName(pkg.browser) : pkg.browser,
-  format: 'umd',
-  moduleName: 'ReduxCreateAction',
+  input: 'src/index.js',
+  output: {
+    name: 'ReduxCreateActions',
+    file: minified ? minifyName(pkg.browser) : pkg.browser,
+    format: 'umd'
+  },
   plugins: plugins(minified)
 })
 
 const cjs = ({ minified } = {}) => ({
-  entry: 'src/index.js',
-  targets: [
+  input: 'src/index.js',
+  output: [
     {
-      dest: minified ? minifyName(pkg.main) : pkg.main,
+      file: minified ? minifyName(pkg.main) : pkg.main,
       format: 'cjs'
     }, {
-      dest: minified ? minifyName(pkg.module) : pkg.module,
+      file: minified ? minifyName(pkg.module) : pkg.module,
       format: 'es'
     }
   ],
