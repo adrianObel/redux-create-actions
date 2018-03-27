@@ -1,6 +1,6 @@
 {
   "name": "redux-create-actions",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Redux action creator building utilities",
   "main": "dist/redux-create-actions.cjs.js",
   "module": "dist/redux-create-actions.esm.js",
